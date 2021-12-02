@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 
 """
 Django settings for boutique_ado project.
@@ -123,6 +124,9 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://enbpibqaxcrnrw:b226f58007adc2f4f73865b07e77ecedb279ca2811d10c343482c52729441b08@ec2-176-34-105-15.eu-west-1.compute.amazonaws.com:5432/dcqecp6a4tv45o')
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

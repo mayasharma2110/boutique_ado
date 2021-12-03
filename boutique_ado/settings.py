@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8u=%440)4!zq$e2^lfle@j5zg(e#8v_e2$7yo@zju4ra-$o5uz'
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -178,7 +178,7 @@ if 'USE_AWS' in os.environ:
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
     }
-    
+
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'boutiqueado95'
     AWS_S3_REGION_NAME = 'eu-central-1'
@@ -205,7 +205,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = 'pk_test_51JyhUKDDUfYNRp9E51j9fO3uFKjv1OcXyFLndBV3trbVlRxNqZUVqInJZuVm46xNw6bJO2bCGKmNVqNU001Ao21K00R1AkkNQt'
-STRIPE_SECRET_KEY = 'sk_test_51JyhUKDDUfYNRp9EHTU1gO5dK3dCsRMSeTF7UvyWtsSRQOxexzg51UNUeNztBN4408opUGCkyJIx9AInuwQFKHb200o7E0XR4a'
-STRIPE_WH_SECRET = 'whsec_5Hrjy2iOBwdgFDVvIsy0nioOi8w8KbG7'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
